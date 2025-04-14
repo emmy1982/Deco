@@ -53,4 +53,26 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
     }
   });
+
+  // Botón para subir a la parte superior
+  const scrollToTopButton = document.getElementById('scroll-to-top');
+  
+  // Mostrar/ocultar el botón según la posición del scroll
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      scrollToTopButton.classList.remove('opacity-0');
+      scrollToTopButton.classList.add('opacity-100');
+    } else {
+      scrollToTopButton.classList.remove('opacity-100');
+      scrollToTopButton.classList.add('opacity-0');
+    }
+  });
+  
+  // Función para subir a la parte superior
+  scrollToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 });
