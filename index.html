@@ -7,6 +7,8 @@
   <title>DecoMueble | Muebles y decoración</title>
   <link rel="stylesheet" href="./css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -233,61 +235,13 @@
     </div>
   </header>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const productosButton = document.getElementById('productos-button');
-      const productosMenu = document.getElementById('productos-menu');
-      let isMenuOpen = false;
-
-      productosButton.addEventListener('click', function () {
-        isMenuOpen = !isMenuOpen;
-        productosMenu.classList.toggle('hidden');
-        productosButton.setAttribute('aria-expanded', isMenuOpen);
-      });
-
-      document.addEventListener('click', function (event) {
-        if (!productosButton.contains(event.target) && !productosMenu.contains(event.target)) {
-          productosMenu.classList.add('hidden');
-          productosButton.setAttribute('aria-expanded', 'false');
-          isMenuOpen = false;
-        }
-      });
-
-      // Nuevo código para el menú móvil
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const closeMenuButton = document.getElementById('close-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      let isMobileMenuOpen = false;
-
-      mobileMenuButton.addEventListener('click', function() {
-        isMobileMenuOpen = true;
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Previene el scroll del body
-      });
-
-      closeMenuButton.addEventListener('click', function() {
-        isMobileMenuOpen = false;
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = ''; // Restaura el scroll del body
-      });
-
-      // Cerrar el menú al hacer clic fuera
-      document.addEventListener('click', function(event) {
-        if (isMobileMenuOpen && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-          isMobileMenuOpen = false;
-          mobileMenu.classList.add('hidden');
-          document.body.style.overflow = '';
-        }
-      });
-    });
-  </script>
 
   <!-- Hero Section -->
 
   <div class="w-full">
-    <div class="container-fluid mx-auto img__hero mx-2 md:mx-10 lg:mx-10 ">
+    <div class="container-fluid mx-auto img__hero mx-2 md:mx-10 lg:mx-10 animate-fade-in">
       <div class="flex gap-8 py-10 px-10 lg:py-40 items-center justify-center flex-col">
-        <div>
+        <div class="animate-slide-down">
           <a href="#"
             class="hidden md:inline-flex items-center gap-4 px-4 py-2 text-sm font-medium rounded-md bg-gray-200/50 text-white hover:bg-gray-200/75">
             Entra en la nueva colección
@@ -296,17 +250,17 @@
             </svg>
           </a>
         </div>
-        <div class="flex gap-4 flex-col">
-          <h1 class="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-normal text-white">
+        <div class="flex gap-4 flex-col animate-slide-up">
+          <h1 class="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-normal text-white animate-fade-in-delayed">
             Descubre la nueva colección de muebles y accesorios
           </h1>
-          <p class="text-lg md:text-xl leading-relaxed tracking-tight text-white max-w-2xl text-center">
+          <p class="text-lg md:text-xl leading-relaxed tracking-tight text-white max-w-2xl text-center animate-fade-in-delayed-2">
             Somos una empresa dedicada al diseño y fabricación de muebles contemporáneos de alta calidad. Nuestras
             piezas combinan elegancia, funcionalidad y durabilidad para crear espacios únicos que reflejan tu estilo
             personal.
           </p>
         </div>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-3 animate-slide-up-delayed">
           <a href="#"
             class="inline-flex items-center gap-4 px-6 py-3 text-base font-medium rounded-md border border-gray-300 bg-white text-gray-900 hover:bg-gray-50">
             Llámanos
@@ -316,7 +270,7 @@
             </svg>
           </a>
           <a href="#"
-            class="inline-flex items-center gap-4 px-6 py-3 text-base font-medium rounded-md bg-yellow-600 text-white hover:bg-gray-800">
+            class="inline-flex items-center gap-4 px-6 py-3 text-base font-medium rounded-md bg-[#b08968] text-white hover:bg-gray-800">
             Regístrate
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -331,7 +285,7 @@
   <div class="w-full py-20 lg:py-40 pb-20 lg:pb-20">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
-        <div class="flex gap-6 flex-col">
+        <div class="flex gap-6 flex-col" data-aos="fade-right" data-aos-duration="1000">
           <div>
             <span
               class="inline-flex items-center gap-4 px-4 py-2 text-sm font-medium rounded-md bg-gray-200 text-gray-700 hover:bg-gray-200">
@@ -358,7 +312,7 @@
               </svg>
             </a>
             <a href="#"
-              class="inline-flex items-center gap-3 px-6 py-3 text-base font-medium rounded-md bg-yellow-600 text-white hover:bg-gray-800 transition-colors">
+              class="inline-flex items-center gap-3 px-6 py-3 text-base font-medium rounded-md bg-[#b08968] text-white hover:bg-gray-800 transition-colors">
               Catálogo
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -366,7 +320,7 @@
             </a>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden aspect-square shadow-xl">
+        <div class="relative rounded-2xl overflow-hidden aspect-square shadow-xl" data-aos="fade-left" data-aos-duration="1000">
           <img src="./assets/img/image (1).png" alt="Nuestro taller de fabricación"
             class="object-cover w-full h-full" />
         </div>
@@ -379,7 +333,7 @@
   <div class="w-full py-20 lg:py-10">
     <div class="container mx-auto px-4">
       <div class="flex flex-col gap-10">
-        <div class="flex gap-4 flex-col items-start">
+        <div class="flex gap-4 flex-col items-start" data-aos="fade-up" data-aos-duration="1000">
           <div>
             <span
               class="inline-flex items-center gap-4 px-4 py-2 text-sm font-medium rounded-md bg-gray-200 text-gray-900">
@@ -397,7 +351,8 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
-            class="bg-gray-200 rounded-lg h-full lg:col-span-2 p-6 flex justify-between flex-col min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
+            class="bg-gray-200 rounded-lg h-full lg:col-span-2 p-6 flex justify-between flex-col min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[480px] overflow-hidden"
+            data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
             <img src="./assets/img/a7be51b1-928f-4c3e-82da-e5518e2dffbe.png" alt="Cocinas a medida"
               class="w-full h-64 object-cover rounded-md mb-4" />
             <div class="flex flex-col">
@@ -407,7 +362,8 @@
               </p>
             </div>
           </div>
-          <div class="bg-gray-200 rounded-lg aspect-square p-6 flex justify-between flex-col">
+          <div class="bg-gray-200 rounded-lg aspect-square p-6 flex justify-between flex-col"
+            data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
             <img src="./assets/img/armario.png" alt="Armarios empotrados"
               class="w-full h-48 object-cover rounded-md mb-4" />
             <div class="flex flex-col">
@@ -418,7 +374,8 @@
             </div>
           </div>
 
-          <div class="bg-gray-200 rounded-lg aspect-square p-6 flex justify-between flex-col">
+          <div class="bg-gray-200 rounded-lg aspect-square p-6 flex justify-between flex-col"
+            data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
             <img src="./assets/img/salon.png" alt="Muebles de salón" class="w-full h-48 object-cover rounded-md mb-4" />
             <div class="flex flex-col">
               <h3 class="text-4xl tracking-tight">Muebles de salón</h3>
@@ -428,7 +385,8 @@
             </div>
           </div>
           <div
-            class="bg-gray-200 rounded-lg h-full lg:col-span-2 p-6 flex justify-between flex-col min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
+            class="bg-gray-200 rounded-lg h-full lg:col-span-2 p-6 flex justify-between flex-col min-h-[400px] sm:min-h-[500px] md:min-h-[500px] lg:min-h-[480px] overflow-hidden"
+            data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
             <img src="./assets/img/dormitorio.png" alt="Dormitorios completos"
               class="w-full h-64 object-cover rounded-md mb-4" />
             <div class="flex flex-col">
@@ -485,7 +443,7 @@
   <div class="w-full py-20 lg:py-10 pb-20 lg:pb-20">
     <div class="container mx-auto px-4">
       <div class="flex flex-col gap-10">
-        <div class="flex gap-4 flex-col items-start">
+        <div class="flex gap-4 flex-col items-start" data-aos="fade-up" data-aos-duration="1000">
           <div>
             <span
               class="inline-flex items-center gap-4 px-4 py-2 text-sm font-medium rounded-md bg-gray-200 text-gray-900">
@@ -504,10 +462,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           <!-- Sala de Estar -->
           <div
-            class="cat__1 rounded-lg aspect-square p-6 flex justify-between flex-col lg:col-span-2 lg:row-span-2 hover:bg-gray-100 transition-colors">
+            class="cat__1 rounded-lg aspect-square p-6 flex justify-between flex-col lg:col-span-2 lg:row-span-2 hover:bg-gray-100 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl relative group"
+            data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
             <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             </svg>
-            <div class="flex flex-col text-white">
+            <div class="flex flex-col text-white relative z-10">
               <h3 class="text-4xl tracking-tight">Sala de Estar</h3>
               <p class="text-gray-600 max-w-xs text-base text-white">
                 Sofás, sillones y mesas de centro para crear un espacio acogedor y elegante.
@@ -517,10 +477,11 @@
 
           <!-- Dormitorio -->
           <div
-            class="cat__2 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-colors">
+            class="cat__2 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl relative group">
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
             <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             </svg>
-            <div class="flex flex-col text-white">
+            <div class="flex flex-col text-white relative z-10">
               <h3 class="text-4xl tracking-tight">Dormitorio</h3>
               <p class="text-gray-600 max-w-xs text-base text-white">
                 Camas, armarios y mesas de noche para un descanso perfecto.
@@ -530,10 +491,11 @@
 
           <!-- Comedor -->
           <div
-            class="cat__3 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-colors">
+            class="cat__3 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl relative group">
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
             <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             </svg>
-            <div class="flex flex-col text-white">
+            <div class="flex flex-col text-white relative z-10">
               <h3 class="text-4xl tracking-tight">Comedor</h3>
               <p class="text-gray-600 max-w-xs text-base text-white">
                 Mesas, sillas y aparadores para disfrutar de tus comidas en familia.
@@ -543,10 +505,11 @@
 
           <!-- Oficina -->
           <div
-            class="cat__4 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-colors">
+            class="cat__4 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl relative group">
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
             <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             </svg>
-            <div class="flex flex-col text-white">
+            <div class="flex flex-col text-white relative z-10">
               <h3 class="text-4xl tracking-tight">Oficina</h3>
               <p class="text-gray-600 max-w-xs text-base text-white">
                 Escritorios y sillas ergonómicas para tu espacio de trabajo.
@@ -556,10 +519,11 @@
 
           <!-- Baño -->
           <div
-            class="cat__5 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-colors">
+            class="cat__5 rounded-lg aspect-square p-6 flex justify-between flex-col hover:bg-gray-100 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl relative group">
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
             <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             </svg>
-            <div class="flex flex-col text-white">
+            <div class="flex flex-col text-white relative z-10">
               <h3 class="text-4xl tracking-tight">Baño</h3>
               <p class="text-gray-600 max-w-xs text-base text-white">
                 Muebles y accesorios para organizar tu baño con estilo.
@@ -577,7 +541,7 @@
     <div class="container max-w-6xl mx-auto px-4">
       <div class="grid lg:grid-cols-2 gap-10">
         <!-- Información de contacto -->
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6" data-aos="fade-right" data-aos-duration="1000">
           <div class="flex flex-col gap-4">
             <div>
               <span
@@ -658,7 +622,7 @@
 
         <!-- Formulario -->
 
-        <div class="justify-center flex items-center">
+        <div class="justify-center flex items-center" data-aos="fade-left" data-aos-duration="1000">
           <div class="rounded-lg w-full max-w-md flex flex-col bg-white p-8 gap-6 shadow-lg">
             <h5 class="text-xl font-medium">Agenda una cita</h5>
             <form class="flex flex-col gap-4">
@@ -721,7 +685,7 @@
               </div>
 
               <button type="submit"
-                class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-md bg-yellow-600 text-white hover:bg-gray-800 transition-colors">
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-md bg-[#b08968] text-white hover:bg-gray-800 transition-colors">
                 Agendar Cita
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -750,7 +714,7 @@
           Diseñamos y fabricamos muebles de alta calidad que se adaptan perfectamente a tu espacio y estilo de vida.
         </p>
         <a href="#"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-yellow-600 text-white font-medium hover:bg-gray-500 transition-colors">
+          class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#b08968] text-white font-medium hover:bg-gray-500 transition-colors">
           Empezar
         </a>
       </div>
@@ -849,6 +813,10 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
