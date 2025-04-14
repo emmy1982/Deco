@@ -3,7 +3,10 @@ AOS.init({
   once: true,        // Las animaciones ocurren solo una vez
   offset: 100,       // Offset desde el punto de activación
   duration: 1000,    // Duración de las animaciones
-  easing: 'ease-in-out' // Función de temporización
+  easing: 'ease-in-out', // Función de temporización
+  disable: false,    // Habilitar en todos los dispositivos
+  mirror: false,     // No repetir animaciones al hacer scroll hacia arriba
+  anchorPlacement: 'top-bottom' // Punto de activación de la animación
 });
 
 // Funcionalidad del menú
