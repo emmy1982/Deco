@@ -118,5 +118,21 @@
   }
 
 
+  /* ******************** Catalogo ******************** */
 
+  .img__hero__2 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.062), rgba(0, 0, 0, 0.4)), url(../assets/img/crea_una_imagen_para_una_web_en_la_que_aparezca_una_oficina_con_muebles_0db79vlsua0yu6e9vajv_1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+  }
+
+  .img__footer {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.062), rgba(0, 0, 0, 0.4)), url(../assets/img/crea_una_imagen_para_una_web_de_una_tienda_de_muebles__en_la_imagen_que_aparezcan_armarios_en_un_do_8m14ri8dfmxv3hrucoae_3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+  }
 
