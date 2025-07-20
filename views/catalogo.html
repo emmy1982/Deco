@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | DecoMueble</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Prevenir scroll horizontal */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Ajustar animaciones para dispositivos móviles */
+        @media (max-width: 768px) {
+            [data-aos="fade-right"], [data-aos="fade-left"] {
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="../index.html" class="-m-1.5 p-1.5">
+                    <span class="text-4xl tracking-tighter">Deco<strong>Mueble</strong></span>
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button" id="mobile-menu-button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-12">
+                <div class="relative">
+                    <button type="button" id="productos-button" class="flex items-center gap-x-1 text-xl/8 text-gray-900"
+                        aria-expanded="false">
+                        Productos
+                        <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                            data-slot="icon">
+                            <path fill-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div id="productos-menu"
+                        class="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 hidden">
+                        <div class="p-4">
+                            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                </div>
+                                <div class="flex-auto">
+                                    <a href="#" class="block font-semibold text-gray-900">
+                                        MUEBLES
+                                        <span class="absolute inset-0"></span>
+                                    </a>
+                                    <p class="mt-1 text-gray-600">
+                                        Muebles de alta calidad para tu hogar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                </div>
+                                <div class="flex-auto">
+                                    <a href="#" class="block font-semibold text-gray-900">
+                                        SILLAS
+                                        <span class="absolute inset-0"></span>
+                                    </a>
+                                    <p class="mt-1 text-gray-600">
+                                        Sillas cómodas y duraderas para tu hogar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                </div>
+                                <div class="flex-auto">
+                                    <a href="#" class="block font-semibold text-gray-900">
+                                        MESAS
+                                        <span class="absolute inset-0"></span>
+                                    </a>
+                                    <p class="mt-1 text-gray-600">
+                                        Mesas de madera y metal para tu hogar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                </div>
+                                <div class="flex-auto">
+                                    <a href="#" class="block font-semibold text-gray-900">
+                                        ACCESORIOS
+                                        <span class="absolute inset-0"></span>
+                                    </a>
+                                    <p class="mt-1 text-gray-600">
+                                        Accesorios para tu hogar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                </div>
+                                <div class="flex-auto">
+                                    <a href="#" class="block font-semibold text-gray-900">
+                                        BAÑO
+                                        <span class="absolute inset-0"></span>
+                                    </a>
+                                    <p class="mt-1 text-gray-600">
+                                        Baños de alta calidad para tu hogar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                            <a href="#"
+                                class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
+                                <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                    data-slot="icon">
+                                    <path fill-rule="evenodd"
+                                        d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                NUEVOS PRODUCTOS
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
+                                <svg class="size-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                    data-slot="icon">
+                                    <path fill-rule="evenodd"
+                                        d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                COLLECCIONES
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="./decoracion.html" class="text-xl/8 text-gray-900">Decoración</a>
+                <a href="./muebles.html" class="text-xl/8 text-gray-900">Muebles</a>
+                <a href="#" class="text-xl/8 text-gray-900">Accesorios</a>
+                <a href="#" class="text-xl/8 text-gray-900">Collecciones</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden hidden" role="dialog" aria-modal="true" id="mobile-menu">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0 z-10 bg-gray-500/75"></div>
+            <div
+                class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="text-2xl">Deco<strong>Mueble</strong></span>
+                    </a>
+                    <button type="button" id="close-menu-button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <div class="-mx-3">
+                                <button type="button"
+                                    class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                    aria-controls="disclosure-1" aria-expanded="false">
+                                    Product
+                                    <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                        data-slot="icon">
+                                        <path fill-rule="evenodd"
+                                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <!-- 'Product' sub-menu, show/hide based on menu state. -->
+                                <div class="mt-2 space-y-2" id="disclosure-1">
+                                    <a href="./decoracion.html"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Decoración</a>
+                                    <a href="./muebles.html"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Muebles</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Accesorios</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Collecciones</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Nuevos Productos</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Sobre la empresa</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
+                                in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="py-16 img__hero__2 mx-2 md:mx-10 lg:mx-20 h-[400px] flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-normal tracking-tight text-white mb-4 text-center">Nuestro Catálogo</h1>
+                <p class="text-lg text-white max-w-2xl mx-auto text-center">
+                    Descubre nuestra colección completa de muebles de alta calidad para cada espacio de tu hogar.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación de categorías -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="mx-auto max-w-7xl px-4 py-4">
+            <div class="flex flex-wrap justify-center gap-4 lg:gap-8">
+                <a href="#comedor" class="text-lg font-medium text-gray-900 hover:text-[#b08968] transition-colors">Comedor</a>
+                <a href="#dormitorio" class="text-lg font-medium text-gray-900 hover:text-[#b08968] transition-colors">Dormitorio</a>
+                <a href="#banos" class="text-lg font-medium text-gray-900 hover:text-[#b08968] transition-colors">Baños</a>
+                <a href="#sala" class="text-lg font-medium text-gray-900 hover:text-[#b08968] transition-colors">Sala de Estar</a>
+                <a href="#oficina" class="text-lg font-medium text-gray-900 hover:text-[#b08968] transition-colors">Oficina</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Comedor -->
+    <section id="comedor" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-gray-900 mb-4">Comedor</h2>
+                <p class="text-lg text-gray-600">Muebles elegantes para crear momentos inolvidables en familia.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="group relative" data-aos="fade-up">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1617364852223-75f57e78dc96?q=80&w=2070&auto=format&fit=crop"
+                             alt="Mesa de comedor moderna"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Mesa Moderna Nórdica</h3>
+                            <p class="mt-1 text-sm text-gray-500">Madera de roble macizo</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">899€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?q=80&w=2070&auto=format&fit=crop"
+                             alt="Sillas de comedor"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Silla Elegance</h3>
+                            <p class="mt-1 text-sm text-gray-500">Set de 4 sillas tapizadas</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">499€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070&auto=format&fit=crop"
+                             alt="Aparador moderno"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Aparador Vintage</h3>
+                            <p class="mt-1 text-sm text-gray-500">Madera y metal</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">749€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=1969&auto=format&fit=crop"
+                             alt="Vitrina moderna"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Vitrina Crystal</h3>
+                            <p class="mt-1 text-sm text-gray-500">Cristal templado y madera</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">899€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Dormitorio -->
+    <section id="dormitorio" class="py-16 bg-gray-200 rounded-3xl mx-2 lg:mx-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-gray-900 mb-4">Dormitorio</h2>
+                <p class="text-lg text-gray-600">Diseños contemporáneos para un descanso perfecto.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="group relative" data-aos="fade-up">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2070&auto=format&fit=crop"
+                             alt="Cama moderna"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Cama Premium</h3>
+                            <p class="mt-1 text-sm text-gray-500">Tapizada en tela premium</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">1299€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=2070&auto=format&fit=crop"
+                             alt="Mesita de noche"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Mesita Minimal</h3>
+                            <p class="mt-1 text-sm text-gray-500">Diseño minimalista</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">249€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1556337137-c7de215dfa78?q=80&w=2070&auto=format&fit=crop"
+                             alt="Armario empotrado"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Armario Luxury</h3>
+                            <p class="mt-1 text-sm text-gray-500">Puertas correderas</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">1599€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1616627561839-074385245ff6?q=80&w=2070&auto=format&fit=crop"
+                             alt="Tocador moderno"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Tocador Glamour</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con espejo LED</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">699€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Baños -->
+    <section id="banos" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-gray-900 mb-4">Baños</h2>
+                <p class="text-lg text-gray-600">Soluciones elegantes para tu espacio de bienestar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="group relative" data-aos="fade-up">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=2069&auto=format&fit=crop"
+                             alt="Mueble de baño completo"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Mueble Completo Zen</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con lavabo integrado</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">899€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+                             alt="Espejo de baño"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Espejo Smart</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con iluminación LED</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">349€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2070&auto=format&fit=crop"
+                             alt="Columna de almacenaje"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Columna Storage</h3>
+                            <p class="mt-1 text-sm text-gray-500">Almacenaje vertical</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">449€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?q=80&w=2069&auto=format&fit=crop"
+                             alt="Set de accesorios"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Set Accesorios Luxe</h3>
+                            <p class="mt-1 text-sm text-gray-500">Acabado negro mate</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">199€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sala de Estar -->
+    <section id="sala" class="py-16 bg-gray-200 rounded-3xl mx-2 lg:mx-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-gray-900 mb-4">Sala de Estar</h2>
+                <p class="text-lg text-gray-600">Crea espacios acogedores para compartir momentos especiales.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="group relative" data-aos="fade-up">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=2080&auto=format&fit=crop"
+                             alt="Sofá moderno"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Sofá Comfort Plus</h3>
+                            <p class="mt-1 text-sm text-gray-500">3 plazas reclinables</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">1899€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=2070&auto=format&fit=crop"
+                             alt="Mesa de centro"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Mesa Centro Geo</h3>
+                            <p class="mt-1 text-sm text-gray-500">Diseño geométrico</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">399€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop"
+                             alt="Sillón individual"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Sillón Relax</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con reposapiés</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">649€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2070&auto=format&fit=crop"
+                             alt="Mueble TV"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Mueble TV Modern</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con iluminación LED</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">799€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Oficina -->
+    <section id="oficina" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-gray-900 mb-4">Oficina</h2>
+                <p class="text-lg text-gray-600">Mobiliario ergonómico para tu espacio de trabajo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="group relative" data-aos="fade-up">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=2069&auto=format&fit=crop"
+                             alt="Escritorio ejecutivo"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Escritorio Executive</h3>
+                            <p class="mt-1 text-sm text-gray-500">Con sistema de cables</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">799€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=2069&auto=format&fit=crop"
+                             alt="Silla ergonómica"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Silla Ergo Pro</h3>
+                            <p class="mt-1 text-sm text-gray-500">Ajuste lumbar</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">549€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1519974719765-e6559eac2575?q=80&w=2070&auto=format&fit=crop"
+                             alt="Estantería modular"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Estantería Modular</h3>
+                            <p class="mt-1 text-sm text-gray-500">Sistema personalizable</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">349€</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?q=80&w=2071&auto=format&fit=crop"
+                             alt="Lámpara de escritorio"
+                             class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Lámpara Smart</h3>
+                            <p class="mt-1 text-sm text-gray-500">Control táctil</p>
+                        </div>
+                        <p class="text-lg font-medium text-gray-900">129€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class=" ">
+        <div class="mx-auto max-w-7xl px-4 py-12">
+          <!-- Top section with "Empezar" -->
+          <div class="text-center mb-20 img__footer p-20">
+            <h2 class="text-4xl md:text-5xl font-normal tracking-tight text-white max-w-2xl mx-auto mb-4">
+                Echale un vistazo a nuestro catálogo
+            </h2>
+            <p class="text-white max-w-2xl mx-auto mb-8">
+                Envios a toda España, entrega rápida y garantía de calidad
+            </p>
+            <a href="#"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#b08968] text-white font-medium hover:bg-gray-500 transition-colors">
+            Empezar
+            </a>
+          </div>
+    
+          <!-- Navigation Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-12 border-t border-gray-200">
+            <!-- Logo Column -->
+            <div class="col-span-1">
+              <a href="#" class="text-2xl font-semibold">
+                Deco<strong>Mueble</strong>
+              </a>
+            </div>
+    
+            <!-- Solutions Column -->
+            <div class="col-span-1">
+              <h3 class="font-medium text-gray-900 mb-4">Soluciones</h3>
+              <ul class="space-y-3">
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Diseño de Interiores</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Fabricación a Medida</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Asesoramiento</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Instalación</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Mantenimiento</a></li>
+              </ul>
+            </div>
+    
+            <!-- Support Column -->
+            <div class="col-span-1">
+              <h3 class="font-medium text-gray-900 mb-4">Apoyo</h3>
+              <ul class="space-y-3">
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Contactar</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Documentación</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Guías</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">FAQs</a></li>
+              </ul>
+            </div>
+    
+            <!-- Company Column -->
+            <div class="col-span-1">
+              <h3 class="font-medium text-gray-900 mb-4">Compañía</h3>
+              <ul class="space-y-3">
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Acerca de</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Blog</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Empleo</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Prensa</a></li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Bottom Section -->
+          <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
+            <p class="text-gray-600 text-sm">
+              © 2024 DecoMueble, Inc. Todos los derechos reservados.
+            </p>
+            <!-- Social Links -->
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                <span class="sr-only">Facebook</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                <span class="sr-only">Instagram</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                <span class="sr-only">Twitter</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                <span class="sr-only">GitHub</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                <span class="sr-only">YouTube</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <!-- Botón para subir -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-4 bg-[#b08968]/80 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 z-50 hover:bg-gray-800 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        <span class="sr-only">Subir al inicio</span>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html> 
